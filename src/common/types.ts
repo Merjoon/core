@@ -55,8 +55,8 @@ export interface IMerjoonUsersTransform {
   remote_id: string;
   name: string;
   email_address: string;
-  remote_created_at: string;
-  remote_modified_at: string;
+  remote_created_at?: string;
+  remote_modified_at?: string;
 }
 
 export interface IMerjoonTasksTransform {
