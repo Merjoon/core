@@ -9,3 +9,8 @@ export enum HiveApiPath {
   Actions = 'actions',
   Projects = 'projects',
 }
+
+export enum HiveApiVersion {
+  Version1 = 'v1',
+  Version2 = 'v2',
+}
