@@ -8,7 +8,7 @@ export class HiveApi extends HttpClient {
   protected readonly userId: string;
 
   constructor(protected config: IHiveConfig) {
-    const basePath = `https://app.hive.com/`;
+    const basePath = `https://app.hive.com`;
     super(basePath);
 
     this.workspaceId = config.workspaceId;
@@ -16,7 +16,7 @@ export class HiveApi extends HttpClient {
     this.userId = config.userId;
   };
 
-  public sendRequest(path: HiveApiPath, version: HiveApiVersion) {
+  public sendRequest(path: HiveApiPath, version: HiveApiVersion, queryParams: {first?: number, after?: string} = {}) {
     const config: IRequestConfig = {
       headers: {
         'api_key': `${this.apiKey}`,
@@ -25,11 +25,13 @@ export class HiveApi extends HttpClient {
 
     const endpoint = `api/${version}/workspaces/${this.workspaceId}/${path}`;
 
+
     return this.get({
       path: endpoint,
       config,
       queryParams: {
         userId: this.userId,
+        ...queryParams,
       },
     });
   };
