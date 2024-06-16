@@ -62,7 +62,6 @@ describe('e2e Hive', () => {
   it('getTasks', async () => {
     const tasks: IMerjoonTasks = await service.getTasks();
 
-    console.log('tasks: ', tasks);
     expect(Object.keys(tasks[0])).toEqual(expect.arrayContaining([
       'id',
       'remote_id',
